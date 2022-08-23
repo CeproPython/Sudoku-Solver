@@ -100,5 +100,6 @@ def main():
         if tem_duplicados(i):
             print(f'Tabela {contador} tem duplicados!')
 
-while True:
-    main()
+main()
+#while True:
+#    main()

@@ -111,6 +111,15 @@ def main():
         [tabela[6][3:6], tabela[7][3:6], tabela[8][3:6]],
         [tabela[6][6:9], tabela[7][6:9], tabela[8][6:9]],
     ]
+    # utilização:
+    # celulas[0] = primeiro conjunto de celulas
+    
+    # para fazer:
+    # checar elemento por elemento de célula por célula para ver se o elemento atual já está nessa célula,
+    # se estiver, substituir o elemento atual por 0
+    
+    # quando fazer esse sisteminha, o algoritimo de geração vai estar 70% concluido, já que não haverá duplicados em nenhuma célula e nem duplicados horizontalmente.
+    
 
     print(celulas)
 

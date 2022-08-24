@@ -103,3 +103,21 @@ def main():
 main()
 #while True:
 #    main()
+
+# Pensei aqui agora no café
+# check Linha 1 casa a casa
+# check linha 2 casa a casa
+# check Linha 1 casa a casa 
+# check Linha 1 casa a casa
+# check Linha 1 casa a casa
+# check Linha 1 casa a casa
+# check Linha 1 casa a casa
+# check Linha 1 casa a casa
+# check Linha 1 casa a casa
+#        Ou
+# check 1 o primeiro item de cada Casa e depois compare para ser se tem repetido
+# No caso se fizer para 1 tem como fazer para 2,3 etc..
+#
+# check bloco, Chegar os 3 primeiros item de da lista 1,2,3 comparar ==
+#
+# check bloco para compar os 9 blocos

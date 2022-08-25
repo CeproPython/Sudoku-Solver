@@ -1,7 +1,13 @@
 import random
 
 
-def main():
+tem2 = False
+tabela_sudoku = []
+
+
+def gerar():
+    global tem2
+
     # Tabela do Sudoku #
     tabela0 = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     tabela1 = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -23,81 +29,36 @@ def main():
     posicao_inicial = random.choice(tabela)
     posicao_inicial[random.randrange(0, 9)] = numero_inicial
 
-    # Gerar a tabela inicial
-    # Checar uma tabela aleatoria
-    # Colocar um numero aleatorio na tabela (antes verificar se ele já existe)
-    # Se ele não existir, ter uma chance de colocar ele, (entre 1 e 10)
+    dificuldade = 'medio'
 
-    # dificuldades = ['facil', 'medio', 'dificil']
-    dificuldade = 'facil'
-
+    # Função de gerar chance, gera um número em uma escala dependendo da dificuldade
     def gerar_chance():
         if dificuldade == 'facil':
-            return random.randrange(0, 3)
+            return random.randrange(0, 2)
+        
         if dificuldade == 'medio':
-            return random.randrange(0, 7)
+            return random.randrange(0, 5)
+        
         if dificuldade == 'dificil':
             return random.randrange(0, 10)
 
-    # Gerar tabela checando por duplicados na horizontal
+    # Adicionar os números aleatoriamente pela tabela (de 1 a 9)
     for tabela_atual in tabela:
-        # Colocar em uma posicao aleatoria da tabela atual utilizando chances
         for elemento_atual in tabela_atual:
+            
             chance = gerar_chance()
+            
             if chance == 0:
                 numero_aleatorio = random.randrange(1, 10)
 
-                # checar se o numero gerado já está na tabela atual
+                # Ignorar se ele já está, se não, colocar ele
                 if numero_aleatorio in tabela_atual:
                     pass
+                
                 else:
                     tabela_atual[random.randrange(0, 9)] = numero_aleatorio
 
-    numeros_vertical_1 = ''
-
-    # Deprecapted #
-    #   Checar tabelas verticais
-    #   for tabela_atual in tabela:
-    #       elemento = str(tabela_atual[0])
-    #       if elemento in numeros_vertical_1 and elemento != '0':
-    #           print(f'{elemento} já está nos numeros verticais [{numeros_vertical_1[int(elemento)]}]')
-    #       else:
-    #           numeros_vertical_1 += elemento
-
-    [print(tabela_atual) for tabela_atual in tabela]
-
-    primeiros = []
-
-    def checar_primeiros(n):
-        primeiros_string = ''
-        for i in tabela:
-            primeiros_string += str(i[n])
-        else:
-            primeiros.append(primeiros_string)
-
-    for casa_a_casa in range(9):
-        checar_primeiros(casa_a_casa)
-
-    def tem_duplicados(palavra):
-        tem = False
-        temp = []
-        for i in palavra:
-            if i in temp and i != '0':
-                i = '0'
-                continue
-            else:
-                temp.append(i)
-        else:
-            if tem:
-                main()
-            return tem
-
-    contador = 0
-    for i in primeiros:
-        contador += 1
-        if tem_duplicados(i):
-            print(f'Tabela {contador} tem duplicados!')
-
+    # Todas as células (3x3)
     celulas = [
         [tabela[0][0:3], tabela[1][0:3], tabela[2][0:3]],
         [tabela[0][3:6], tabela[1][3:6], tabela[2][3:6]],
@@ -114,20 +75,37 @@ def main():
 
     lst = []
     apareceram = ''
-    for i in celulas:
-        for j in i:
-            for k in j:
-                if k != 0:
-                    apareceram += str(k)
-                    lst.append(k)
 
-        print(lst)
+    # Sistema para checar todas as casas em todos os blocos
+    # Se o número que está sendo checado na casa já existe nela, chama a função denovo
+    # Assim previnindo numeros duplicados em uma casa
+    for bloco in celulas:
+        for casa in bloco:
+            for numero in casa:
+                if numero != 0:
+                    apareceram += str(numero)
+                    lst.append(numero)
+
+        for e in lst:
+            # list.count() retorna a quantidade de vezes que um elemento aparece em uma lista
+            
+            if lst.count(e) > 1:
+                tem2 = True
+                break
+
+        if tem2:
+            break
+            
         lst.clear()
-        apareceram=''
+        apareceram = ''
+
+    for i in tabela:
+        global tabela_sudoku
+        
+        tabela_sudoku.append(i)
 
 
-main()
-# while True:
-#    main()
+gerar()
 
-
+for i in tabela_sudoku:
+    print(i)

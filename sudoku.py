@@ -112,18 +112,22 @@ def main():
         [tabela[6][6:9], tabela[7][6:9], tabela[8][6:9]],
     ]
 
+    lst = []
     apareceram = ''
     for i in celulas:
         for j in i:
             for k in j:
                 if k != 0:
                     apareceram += str(k)
+                    lst.append(k)
 
-        print(apareceram)
-        apareceram = ''
+        print(lst)
+        lst.clear()
+        apareceram=''
 
 
 main()
 # while True:
 #    main()
+
 

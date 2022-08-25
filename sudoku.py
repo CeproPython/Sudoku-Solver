@@ -111,40 +111,19 @@ def main():
         [tabela[6][3:6], tabela[7][3:6], tabela[8][3:6]],
         [tabela[6][6:9], tabela[7][6:9], tabela[8][6:9]],
     ]
-    # utilização:
-    # celulas[0] = primeiro conjunto de celulas
-    
-    # para fazer:
-    # checar elemento por elemento de célula por célula para ver se o elemento atual já está nessa célula,
-    # se estiver, substituir o elemento atual por 0
-    
-    # quando fazer esse sisteminha, o algoritimo de geração vai estar 70% concluido, já que não haverá duplicados em nenhuma célula e nem duplicados horizontalmente.
-    
 
-    print(celulas)
+    apareceram = ''
+    for i in celulas:
+        for j in i:
+            for k in j:
+                if k != 0:
+                    apareceram += str(k)
+
+        print(apareceram)
+        apareceram = ''
 
 
 main()
 # while True:
 #    main()
 
-#while True:
-#    main()
-
-# Pensei aqui agora no café
-# check Linha 1 casa a casa
-# check linha 2 casa a casa
-# check Linha 1 casa a casa 
-# check Linha 1 casa a casa
-# check Linha 1 casa a casa
-# check Linha 1 casa a casa
-# check Linha 1 casa a casa
-# check Linha 1 casa a casa
-# check Linha 1 casa a casa
-#        Ou
-# check 1 o primeiro item de cada Casa e depois compare para ser se tem repetido
-# No caso se fizer para 1 tem como fazer para 2,3 etc..
-#
-# check bloco, Chegar os 3 primeiros item de da lista 1,2,3 comparar ==
-#
-# check bloco para compar os 9 blocos

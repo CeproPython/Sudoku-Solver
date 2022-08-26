@@ -6,7 +6,7 @@ algoritimo para gerar e resolver o Quebra Cabeça **Sudoku**
 - - [X] Dificuldades
 - - [X] Remover Duplicados horizontalmente
 - - [X] Celulas
-- - [X] Checar duplicados em célula
+- - [~] Checar duplicados em célula
 - [ ] Resolver a tabela
 - - [ ] Checar horizontalmente
 - - [ ] Checar verticalmente
